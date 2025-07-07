@@ -19,7 +19,7 @@ class __HomePageStateState extends State<_HomePageState> {
           title: const Text("Material App"),
         ),
         body: const Center(
-          child: Text("Hello my friend"),
+          child: Text("Hello my friend, thats is just a  test in Firebase"),
         ),
       ),
     );
