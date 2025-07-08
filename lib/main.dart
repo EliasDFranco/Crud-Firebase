@@ -1,29 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
-class _HomePageState extends StatefulWidget {
-  const _HomePageState({super.key});
+// Importaciones de Firebase
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+    );
+  runApp(MyApp()),
+};
+
+class MyApp extends StatelessWidget {
+  const MyApp ({super.key});
 
   @override
-  State<_HomePageState> createState() => __HomePageStateState();
-}
-
-class __HomePageStateState extends State<_HomePageState> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return MaterialApp(
-      title: "Home Page",
+      title: "Crud en Firebase",
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Material App"),
+          title: const("Welcome to Firebase"),
         ),
         body: const Center(
-          child: Text("Hello my friend, thats is just a  test in Firebase"),
-        ),
+          child: Text("Esto es un crud hecho con Flutter, Dart y Firebase"),
+        )
       ),
-    );
+      );
   }
 }
-
-
