@@ -17,19 +17,6 @@ Future<List> getPersonas() async {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // EXPLICACIÓN DE CONCEPTOS
 
 /*Sí, en Dart, Future es una instancia de la clase Future. Representa el resultado de una operación asíncrona que se completará en el futuro, ya sea con un valor o con un error. Los objetos Future son fundamentales para el manejo de tareas asíncronas en Dart y se utilizan junto con las palabras clave async y await. 
