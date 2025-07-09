@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 // Importaciones de Firebase
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+// Servicios
+import 'package:crud_firebase/services/firebase_services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,9 +25,24 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const("Welcome to Firebase"),
         ),
-        body: const Center(
-          child: Text("Esto es un crud hecho con Flutter, Dart y Firebase"),
-        )
+        body: FutureBuilder(
+          future: getPersonas(),
+          builder: ((context, snapshot){
+            if (snapshot.hasData){
+               return ListView.builder(
+                 itemCount: snapshot.data?.length,
+                 itemBuilder: (context, index){
+                   return Text(snapshot.data[index]['nombre']);
+              }
+            );
+           }
+            else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          }
+        )),
       ),
       );
   }
