@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart'
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 FirebaseFirestore database = FirebaseFirestore.instance;
 
@@ -6,9 +6,9 @@ Future<List> getPersonas() async {
   List personas = [];
   CollectionReference collectionReferencePersonas = database.collection('personas');
 
-  QuerySnapshot queryPersonas = await collectionReferencesPersonas.get();
+  QuerySnapshot queryPersonas = await collectionReferencePersonas.get();
   queryPersonas.docs.forEach((documentos){
-    personas.add(documentos.data())
+    personas.add(documentos.data());
   });
 
   await Future.delayed(const Duration(seconds: 5));

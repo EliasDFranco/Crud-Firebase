@@ -11,8 +11,8 @@ void main() async {
   await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
     );
-  runApp(MyApp()),
-};
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp ({super.key});
@@ -23,19 +23,19 @@ class MyApp extends StatelessWidget {
       title: "Crud en Firebase",
       home: Scaffold(
         appBar: AppBar(
-          title: const("Welcome to Firebase"),
+          title: const Text('Welcome to Firebase'),
         ),
         body: FutureBuilder(
           future: getPersonas(),
           builder: ((context, snapshot){
             if (snapshot.hasData){
-               return ListView.builder(
-                 itemCount: snapshot.data?.length,
-                 itemBuilder: (context, index){
-                   return Text(snapshot.data[index]['nombre']);
+                return ListView.builder(
+                  itemCount: snapshot.data?.length,
+                  itemBuilder: (context, index){
+                    return Text(snapshot.data?[index]['nombre']);
               }
             );
-           }
+          }
             else {
               return const Center(
                 child: CircularProgressIndicator(),
@@ -80,6 +80,3 @@ class MyApp extends StatelessWidget {
   - Muestra un loading (CircularProgressIndicator) mientras espera.
   - Ideal para mostrar datos de forma dinámica cuando vienen de una DB/API.
 */
-
-
-
